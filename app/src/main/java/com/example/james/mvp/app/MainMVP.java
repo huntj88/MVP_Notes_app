@@ -15,7 +15,6 @@ import java.util.ArrayList;
 public interface MainMVP {
 
     /**
-     * View mandatory methods. Available to Presenter
      *      Presenter -> View
      */
     interface RequiredViewOps {
@@ -25,7 +24,6 @@ public interface MainMVP {
     }
 
     /**
-     * Operations offered from Presenter to View
      *      View -> Presenter
      */
     interface PresenterOps{
@@ -37,7 +35,6 @@ public interface MainMVP {
     }
 
     /**
-     * Operations offered from Presenter to Model
      *      Model -> Presenter
      */
     interface RequiredPresenterOps {
@@ -48,7 +45,6 @@ public interface MainMVP {
     }
 
     /**
-     * Model operations offered to Presenter
      *      Presenter -> Model
      */
     interface ModelOps {

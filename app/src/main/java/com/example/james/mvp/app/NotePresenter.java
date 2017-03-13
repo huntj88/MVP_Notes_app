@@ -45,7 +45,7 @@ public class NotePresenter implements MainMVP.PresenterOps, MainMVP.RequiredPres
 
     @Override
     public void onNoteSaved(Note note) {
-
+        mView.get().showToast(note.getTitle() + " has been saved");
     }
 
     @Override

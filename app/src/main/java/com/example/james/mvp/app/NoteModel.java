@@ -35,7 +35,10 @@ public class NoteModel implements MainMVP.ModelOps {
             SQLiteStatement statement = db.compileStatement(sql);
             long rowId = statement.executeInsert();
             Log.d("inserted", "yay");
-            return new Note(rowId,note.getNoteText(),note.getTitle(),note.getUnixTimeMade());
+
+            Note temp = new Note(rowId,note.getNoteText(),note.getTitle(),note.getUnixTimeMade());
+            mPresenter.onNoteSaved(temp);
+            return temp;
         } else {
             ContentValues newValues = new ContentValues();
             newValues.put(DatabaseHelper.KEY_TEXT, note.getNoteText());
@@ -44,6 +47,7 @@ public class NoteModel implements MainMVP.ModelOps {
 
             String[] args = new String[]{note.getId()+""};
             db.update(DatabaseHelper.DATABASE_TABLE, newValues, DatabaseHelper.KEY_ROWID+"=?", args);
+            mPresenter.onNoteSaved(note);
             return note;
         }
     }

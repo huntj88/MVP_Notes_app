@@ -66,6 +66,7 @@ public class ComposeActivity extends AppCompatActivity implements MainMVP.Requir
                 // User chose the "Settings" item, show the app settings UI...
                 Log.d("save","test");
                 note = mPresenter.saveNote(note.editNote(multiAutoCompleteTextView.getText().toString(),noteTitle.getText().toString()));
+                finish();
                 return true;
 
             case R.id.delete:
