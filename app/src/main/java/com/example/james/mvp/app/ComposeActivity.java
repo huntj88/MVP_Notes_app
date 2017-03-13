@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
 import android.widget.MultiAutoCompleteTextView;
+import android.widget.Toast;
 
 import com.example.james.mvp.R;
 import com.example.james.mvp.utils.DatabaseHelper;
@@ -71,6 +72,7 @@ public class ComposeActivity extends AppCompatActivity implements MainMVP.Requir
                 // User chose the "Favorite" action, mark the current item
                 // as a favorite...
                 mPresenter.deleteNote(note);
+                finish();
                 return true;
 
             default:
@@ -83,6 +85,7 @@ public class ComposeActivity extends AppCompatActivity implements MainMVP.Requir
 
     @Override
     public void showToast(String msg) {
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
 
     }
 

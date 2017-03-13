@@ -53,6 +53,7 @@ public class NoteModel implements MainMVP.ModelOps {
         if(note.getId()!=-1) {
             SQLiteDatabase db = dbHelper.getWritableDatabase();
             db.delete(DatabaseHelper.DATABASE_TABLE, DatabaseHelper.KEY_ROWID + " = ?", new String[]{note.getId() + ""});
+            mPresenter.onNoteRemoved(note);
         }
     }
 
@@ -61,7 +62,7 @@ public class NoteModel implements MainMVP.ModelOps {
     public ArrayList<Note> getAllNotes() {
         ArrayList<Note> notes = new ArrayList<>();
         SQLiteDatabase db = dbHelper.getReadableDatabase();
-        String[] columnsToReturn = { DatabaseHelper.KEY_TITLE, DatabaseHelper.KEY_TEXT, DatabaseHelper.KEY_UNIX };
+        //String[] columnsToReturn = { DatabaseHelper.KEY_TITLE, DatabaseHelper.KEY_TEXT, DatabaseHelper.KEY_UNIX };
         Cursor dbCursor = db.query(DatabaseHelper.DATABASE_TABLE, null, null, null, null, null, null);
 
         if (dbCursor != null && dbCursor.moveToFirst()) {

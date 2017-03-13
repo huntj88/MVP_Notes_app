@@ -50,7 +50,7 @@ public class NotePresenter implements MainMVP.PresenterOps, MainMVP.RequiredPres
 
     @Override
     public void onNoteRemoved(Note note) {
-
+        mView.get().showToast(note.getTitle() + " has been deleted");
     }
 
     @Override
