@@ -29,10 +29,10 @@ public interface MainMVP {
      *      View -> Presenter
      */
     interface PresenterOps{
-        void addNote(Note note);
+        Note saveNote(Note note);
         void deleteNote(Note note);
-        void editNote(Note note);
         ArrayList<Note> getAllNotes();
+        Note getNoteById(long id);
         // any other ops to be called from View
     }
 
@@ -41,9 +41,8 @@ public interface MainMVP {
      *      Model -> Presenter
      */
     interface RequiredPresenterOps {
-        void onNoteInserted(Note note);
+        void onNoteSaved(Note note);
         void onNoteRemoved(Note note);
-        void onNoteEdited(Note none);
         void onError(String errorMsg);
         // Any other returning operation Model -> Presenter
     }
@@ -53,10 +52,10 @@ public interface MainMVP {
      *      Presenter -> Model
      */
     interface ModelOps {
-        void insertNote(Note note);
+        Note saveNote(Note note);
         void removeNote(Note note);
-        void editNote(Note note);
         ArrayList<Note> getAllNotes();
+        Note getNoteById(long id);
         // Any other data operation
     }
 }

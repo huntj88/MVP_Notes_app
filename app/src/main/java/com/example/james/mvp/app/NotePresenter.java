@@ -24,17 +24,12 @@ public class NotePresenter implements MainMVP.PresenterOps, MainMVP.RequiredPres
     }
 
     @Override
-    public void addNote(Note note) {
-        mModel.insertNote(note);
+    public Note saveNote(Note note) {
+        return mModel.saveNote(note);
     }
 
     @Override
     public void deleteNote(Note note) {
-
-    }
-
-    @Override
-    public void editNote(Note note) {
 
     }
 
@@ -44,17 +39,17 @@ public class NotePresenter implements MainMVP.PresenterOps, MainMVP.RequiredPres
     }
 
     @Override
-    public void onNoteInserted(Note note) {
+    public Note getNoteById(long id) {
+        return mModel.getNoteById(id);
+    }
+
+    @Override
+    public void onNoteSaved(Note note) {
 
     }
 
     @Override
     public void onNoteRemoved(Note note) {
-
-    }
-
-    @Override
-    public void onNoteEdited(Note none) {
 
     }
 

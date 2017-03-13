@@ -9,31 +9,35 @@ public class Note {
     private final Long unixTimeMade;
     private final String noteText;
     private final String title;
+    private final long id;
 
-    public Note(String noteText)
+    public Note(long id, String noteText)
     {
         this.noteText = noteText;
         this.title = "Untitled";
         this.unixTimeMade = TimeTools.getUnixTime();
+        this.id = id;
     }
 
-    public Note(String noteText, String title)
+    public Note(long id, String noteText, String title)
     {
         this.noteText = noteText;
         this.title = title;
         this.unixTimeMade = TimeTools.getUnixTime();
+        this.id = id;
     }
 
-    public Note(String noteText, String title, Long unixTimeMade)
+    public Note(long id, String noteText, String title, Long unixTimeMade)
     {
         this.noteText = noteText;
         this.title = title;
         this.unixTimeMade = unixTimeMade;
+        this.id = id;
     }
 
-    public Note editNote(String noteText)
+    public Note editNote(String noteText, String title)
     {
-        return new Note(noteText,title,unixTimeMade);
+        return new Note(id,noteText,title,unixTimeMade);
     }
 
     public String getNoteText()
@@ -49,6 +53,11 @@ public class Note {
     public Long getUnixTimeMade()
     {
         return unixTimeMade;
+    }
+
+    public long getId()
+    {
+        return id;
     }
 
 }
