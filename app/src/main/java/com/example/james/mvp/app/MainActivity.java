@@ -35,22 +35,25 @@ public class MainActivity extends AppCompatActivity implements MainMVP.RequiredV
         mPresenter = new NotePresenter(this, dbHelper);
         //mPresenter.addNote(new Note("test"));
 
-        ArrayList<Note> notes = mPresenter.getAllNotes();
+
 
 
         mRecyclerView = (RecyclerView) findViewById(R.id.note_recycler_view);
-
-        // use this setting to improve performance if you know that changes
-        // in content do not change the layout size of the RecyclerView
         mRecyclerView.setHasFixedSize(true);
 
-        // use a grid layout manager
         mLayoutManager = new GridLayoutManager(this,2,GridLayoutManager.VERTICAL,false);
         mRecyclerView.setLayoutManager(mLayoutManager);
 
         mRecyclerView.addItemDecoration(new NoteDecoration(50,2));
 
-        // specify an adapter (see also next example)
+
+    }
+
+    @Override
+    public void onResume()
+    {
+        super.onResume();
+        ArrayList<Note> notes = mPresenter.getAllNotes();
         mAdapter = new NoteAdapter(notes);
         mRecyclerView.setAdapter(mAdapter);
     }

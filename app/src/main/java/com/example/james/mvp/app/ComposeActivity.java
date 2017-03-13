@@ -70,6 +70,7 @@ public class ComposeActivity extends AppCompatActivity implements MainMVP.Requir
             case R.id.delete:
                 // User chose the "Favorite" action, mark the current item
                 // as a favorite...
+                mPresenter.deleteNote(note);
                 return true;
 
             default:

@@ -50,7 +50,10 @@ public class NoteModel implements MainMVP.ModelOps {
 
     @Override
     public void removeNote(Note note) {
-
+        if(note.getId()!=-1) {
+            SQLiteDatabase db = dbHelper.getWritableDatabase();
+            db.delete(DatabaseHelper.DATABASE_TABLE, DatabaseHelper.KEY_ROWID + " = ?", new String[]{note.getId() + ""});
+        }
     }
 
 

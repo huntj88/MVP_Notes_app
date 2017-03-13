@@ -30,7 +30,7 @@ public class NotePresenter implements MainMVP.PresenterOps, MainMVP.RequiredPres
 
     @Override
     public void deleteNote(Note note) {
-
+        mModel.removeNote(note);
     }
 
     @Override
