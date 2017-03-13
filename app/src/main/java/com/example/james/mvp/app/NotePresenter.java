@@ -10,7 +10,7 @@ import java.util.ArrayList;
  * Created by James on 3/13/2017.
  */
 
-public class MainPresenter implements MainMVP.PresenterOps, MainMVP.RequiredPresenterOps {
+public class NotePresenter implements MainMVP.PresenterOps, MainMVP.RequiredPresenterOps {
 
 
     // Layer View reference
@@ -18,7 +18,7 @@ public class MainPresenter implements MainMVP.PresenterOps, MainMVP.RequiredPres
     // Layer Model reference
     private MainMVP.ModelOps mModel;
 
-    public MainPresenter(MainMVP.RequiredViewOps mView, DatabaseHelper dbHelper) {
+    public NotePresenter(MainMVP.RequiredViewOps mView, DatabaseHelper dbHelper) {
         this.mView = new WeakReference<>(mView);
         this.mModel = new NoteModel(this, dbHelper);
     }

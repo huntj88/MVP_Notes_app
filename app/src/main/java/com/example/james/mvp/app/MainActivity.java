@@ -1,5 +1,6 @@
 package com.example.james.mvp.app;
 
+import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -31,7 +32,7 @@ public class MainActivity extends AppCompatActivity implements MainMVP.RequiredV
         addNoteFAB.setOnClickListener(this);
 
         DatabaseHelper dbHelper = new DatabaseHelper(this);
-        mPresenter = new MainPresenter(this, dbHelper);
+        mPresenter = new NotePresenter(this, dbHelper);
         //mPresenter.addNote(new Note("test"));
 
         ArrayList<Note> notes = mPresenter.getAllNotes();
@@ -69,7 +70,9 @@ public class MainActivity extends AppCompatActivity implements MainMVP.RequiredV
         switch (v.getId())
         {
             case R.id.new_note_fab:
-                mPresenter.addNote(new Note("test two"));
+                //mPresenter.addNote(new Note("test two"));
+                Intent intent = new Intent(this,ComposeActivity.class);
+                startActivity(intent);
                 break;
         }
     }
